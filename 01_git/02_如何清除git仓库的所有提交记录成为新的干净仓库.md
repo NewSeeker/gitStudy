@@ -4,7 +4,7 @@
 
 ## 一、引言
 
-　　小明算Github的忠实用户，经常会把一些练手的项目传到Github上面进行备份。其中有一个名为[ColaFramework](https://github.com/XINCGer/ColaFrameWork)的Unity框架项目，开发了一年多，期间提交代码的时候在Log中上传了一些比较敏感的信息，这些信息都可以在Github上面搜索到，马三想把这些Log信息清除掉，使其变成一个没有提交记录的“新仓库”。于是我在网上一搜，步骤还挺简单的，直接按照下面一步步操作就可以了。
+　　小明算Github的忠实用户，经常会把一些练手的项目传到Github上面进行备份。其中有一个名为[ColaFramework](https://github.com/XINCGer/ColaFrameWork)的Unity框架项目，开发了一年多，期间提交代码的时候在Log中上传了一些比较敏感的信息，这些信息都可以在Github上面搜索到，想把这些Log信息清除掉，使其变成一个没有提交记录的“新仓库”。于是我在网上一搜，步骤还挺简单的，直接按照下面一步步操作就可以了。
 
 ## 二、操作步骤
 
