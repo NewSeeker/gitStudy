@@ -46,4 +46,22 @@ git branch -D master
 
 　　通过以上几步就可以简单地把一个Git仓库的历史提交记录清除掉了，不过最好还是在平时的开发中严格要求一下提交日志的规范，尽量避免在里面输入一些敏感信息进来。
 
+## 注意：在本地push会报错
+
+报错明细：
+
+```shell
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+```
+
+这是因为**本地的分支没有和远程分支建立联系**，需要执行以下代码就可以正常push了：
+
+```shell
+#（master可以根据子的需要自定义，就是当前分支在远程分支对应的名称）
+git push --set-upstream origin master
+```
+
 # END
