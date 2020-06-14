@@ -1,0 +1,5 @@
+虚拟机上配置CentOS 7系统
+
+准备：
+1.1, vmware
+1.2, CentOS-7-x86_64-Minimal-1708.iso

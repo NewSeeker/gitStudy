@@ -1,0 +1,22 @@
+1、简介
+IBM WebSphere MQ (Message Queue) 是目前应用最多的消息中间件产品，它简化了应用程序之间的数据传输，提供了统一的通信标准，确保分布式网络环境下可靠的、跨平台的信息传输和数据交换。应用程序只需要将消息发送给 MQ，由 MQ 负责将消息安全可靠地发送出去。Websphere MQ 支持集群功能。
+
+多个队列管理器可以分布在不同的机器上。集群功能简化了系统配置，不需要在每个队列管理器上创建消息通道、远程队列定义和传输队列。使用集群技术可以提高系统的可用性和实现负载均衡。
+
+2、实例
+实例中创建的集群 NEW_CLUSTER 的拓扑图
+FULL_QM1 <-> PART_QM1
+         <-> PART_QM2
+
+实例测试：
+发送消息队列 : echo "1" | amqsput TEST_QUEUE FULL_QM1
+接收消息队列 : amqsget TEST_QUEUE PART_QM1
+              amqsget TEST_QUEUE PART_QM2
+
+3、负载均衡测试
+创建完一个简单的集群后，通过配置可以实现群集的负载均衡效果。本文在集群中定义了集群队列 TEST_QUEUE 的两个同名队列实例，每个队列实例在不同的队列管理器上。当应用程序把消息发送到该集群队列时，MQ 使用负载平衡算法决定消息实际发送哪个队列管理器。
+
+示例程序首先连接到一个完整仓储库队列管理器 FULL_QM1，将绑定的类型设定为 MQOO_BIND_AS_Q_DEF，然后将五个消息放入集群队列 TEST_QUEUE 中。绑定类型设定为 MQOO_BIND_AS_Q_DEF 是把连接到队列的绑定类型指定为队列缺省的绑定类型，本例中为不固定，是在创建集群队列时，通过设置缺省绑定类型指定的。
+
+参考资料：
+[1]:https://www.ibm.com/developerworks/cn/websphere/library/techarticles/1202_gaoly_mq/1202_gaoly_mq.html
